@@ -1,0 +1,339 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300);
+
+html {
+    font-family: Open Sans;
+}
+
+body {
+    margin: 0;
+    background-color: #eee;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: white;
+    display: flex;
+    height: 50px;
+    padding: 5px 10px;
+    align-items: center;
+    box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.1);
+}
+
+header .title {
+    white-space: nowrap;
+    font-weight: 200;
+    margin-right: 2ch;
+    line-height: 1;
+}
+
+.title a {
+    color: initial;
+    text-decoration: none;
+}
+
+header a.logo {
+    flex-basis: auto;
+    height: 100%;
+    width: auto;
+    flex-grow: 0;
+}
+
+a.logo img.logo {
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+
+header > nav {
+    height: 100%;
+    flex-grow: 1;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+header > nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header ul.nav {
+    display: flex;
+}
+
+header ul.nav > li {
+    background-color: hsl(0, 0%, 100%);
+    padding: 0 1em;
+    position: relative;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 0 0 hsla(0, 0%, 0%, 0) inset;
+}
+
+header ul.nav > li:hover {
+    box-shadow: 0 0 0.5em hsla(0, 0%, 0%, 0.2) inset;
+    cursor: pointer;
+}
+
+header ul.nav > li ul {
+    background-color: inherit;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 2.5ex;
+}
+
+header ul.nav > li li:hover {
+    text-decoration: underline;
+}
+
+header ul.nav > li:hover ul {
+    display: initial;
+}
+
+header ul.nav > li ul li {
+    padding: 0.25em 0.5em;
+}
+
+main {
+    padding: 0.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: lighter;
+}
+
+.tilemap {
+    display: flex;
+    padding: 0.5rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.tilemap > div.text, .tilemap > div.image {
+    background-color: white;
+    box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.1);
+}
+
+.tilemap > div.text {
+    align-self: stretch;
+}
+
+div.text {
+    padding: 2ex 2ch;
+    min-width: 20ch;
+}
+
+div.text *:first-child {
+    margin-top: 0;
+}
+
+div.text *:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    overflow: hidden;
+}
+
+.hand {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hand .card {
+    margin: 5px;
+    padding: 0.2em;
+    background-color: white;
+    box-shadow: 0.2em 0.2em 0.5em hsla(0, 0%, 0%, 0.2);
+    flex-basis: 120px;
+}
+
+.hand .card figure {
+    font-size: 0.8rem;
+}
+
+
+/* Bild-Elemente */
+
+#imgBox {
+    background: hsl(0,0%,10%) url("images/patterns/blackorchid.png");
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+#imgBox #primary, #imgBox #secondary {
+}
+
+#imgBox #primary {
+    flex-shrink: 0;
+}
+
+#primary img {
+    float: left;
+}
+
+#imgBox #primary img {
+    width: 100%;
+}
+
+#imgBox #secondary {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    flex: 100%;
+}
+
+#imgBox #secondary > div {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+
+#imgBox #secondary > div > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+#imgBox #secondary > div > img:hover {
+    transform: translate(-50%, -50%) scale(1.05) ;
+}
+
+/* Carousel */
+
+.carousel {
+    position: relative;
+    background: hsl(0,0%,10%);
+}
+
+.carousel ul {
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+.carousel ul, .carousel li {
+    padding: 0;
+    list-style: none;
+    list-style-type: none;
+}
+
+.carousel li {
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    
+}
+
+.carousel input[type="button"] {
+    background-color: hsla(0,0%,0%,0.5);
+    color: white;
+    border: none;
+    top: 0;
+    position: absolute;
+    width: 42px;
+    height: 100%;
+}
+
+.carousel input[type="button"]:focus {
+    border: none;
+    outline: none;
+}
+
+.carousel input[type="button"][name="back"] {
+    float: left;
+    left: 0;
+}
+
+.carousel input[type="button"][name="forth"] {
+    float: right;
+    right: 0;
+}
+
+/* Formular-Elemente */
+
+input:hover, input:focus, button:hover {
+    box-shadow: 0 0 0.5em hsla(210, 100%, 50%, 0.2);
+}
+
+input[type="text"] {
+    width: 27ch;
+    border: thin solid hsl(0, 0%, 90%);
+    box-shadow: 0 0 0.25em hsla(0, 0%, 0%, 0.05) inset;
+    padding: 0.25ch;
+}
+
+input[type="text"]:hover, input[type="text"]:focus {
+    box-shadow: 0 0 0.25em hsla(0, 0%, 0%, 0.05) inset,
+        0 0 0.5em hsla(210, 100%, 50%, 0.2);
+}
+
+.btnGroup {
+    display: inline-flex;
+}
+
+button.btnSide {
+    background-color: hsl(0, 0%, 100%);
+    border-style: solid;
+    border-color: hsl(0, 0%, 90%);
+}
+
+button.btnSide:hover {
+    cursor: pointer;
+    
+}
+
+button.btnRight {
+    border-width: thin thin thin 0;
+}
+
+.lightBoxOverlay {
+    background-color: hsla(0,0%,0%,0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.lightBoxImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 75vw;
+}
+    
+
+@media (max-width: 1280px) {
+    #imgBox {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #secondary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 960px) {
+    #imgBox {
+        flex-direction: column;
+    }
+    
+    #primary, #secondary {
+        width: 100%;
+    }
+}
